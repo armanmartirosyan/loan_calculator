@@ -39,6 +39,8 @@ foreach ($rates as $rate) {
     }
 }
 sort($currencies);
+
+header('Content-Type: text/html; charset=UTF-8');
 ?>
 
 <!DOCTYPE html>
