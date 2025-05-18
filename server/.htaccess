@@ -1,0 +1,23 @@
+# Enable CORS
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect config file
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Secure admin directory
+<Directory "admin">
+    AuthType Basic
+    AuthName "Admin Area"
+    AuthUserFile /path/to/.htpasswd
+    Require valid-user
+</Directory>
